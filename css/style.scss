@@ -1,0 +1,33 @@
+#demo-name-1 {
+  float: left;
+}
+
+#welcome a {
+  width: 40%;
+}
+
+#about-game > div{
+  padding-left: 0;
+}
+
+
+
+#instructions-and-setup {
+  width: 60rem;
+  > div {
+    width:20rem;
+  }
+  .inner {
+    width:15rem;
+    // padding-left: 20px;
+  }
+  #game-setup {
+    width: 25rem;
+    padding: 0 45px 0 0;
+  }
+  .grid-icons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}

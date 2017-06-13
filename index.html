@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Memory for memories</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="ethereal-theme/assets/css/ethereal-styles.css"/>
+    <link rel="stylesheet" href="css/style.min.css"/>
+  </head>
+  <body>
+  <!-- Page Wrapper -->
+    <div id="page-wrapper">
+      <!-- Wrapper -->
+        <div id="wrapper">
+
+          <!-- Panel 1 - Welcome  -->
+          <section id="welcome" class="panel spotlight medium right">
+            <div class="content span-9">
+              <h1 class="major"></h1>
+              <h1 class="major">Welcome to my game!</h1>
+              <p><b>Scroll right to learn about me and the game or...</b></p>
+              <a href="#instructions-and-setup" class="button">Skip intro, let's play!</a>
+            </div>
+            <div class="image filtered " data-position="top left">
+              <img src="photos/backdrops/south-beach.jpg" alt="" />
+            </div>
+          </section>
+
+        <!-- Panel 2 - About me -->
+          <section id="#about-me" class="panel banner right">
+            <div class="content color0 span-3-75">
+              <h1 class="major">Hello, my name<br />
+              is Alida</h1>
+              <p>I was born and raised in Lima, Peru... and couldn't wait to leave.<br><br>At 18 I moved to NYC where I went to school for fashion, stayed up too late, learned to play pool, and became an adult.<br><br>I worked a bunch of odd jobs until I stumbled onto the magical world of startups... and I've been hooked ever since <3</p>
+            </div>
+            <div class="image filtered span-1-75" data-position="25% 25%">
+              <img src="photos/me/me.jpg" alt="" />
+            </div>
+          </section>
+
+        <!-- Panel 3 - photo collage -->
+          <section id="photo-collage" class="panel">
+            <div class="intro color2">
+              <p>I love spreadsheets and organizational structures, but also have a very strong creative side... Which has made me interested in everything, but expert at nothing.</p>
+              <h2 class="major">I'm doing a bootcamp in hopes of finding a career that will marry my two brains :)</h2>
+            </div>
+            <div class="gallery">
+              <div class="group span-3">
+                <a href="photos/about-me-tiles/spain.jpg" class="image filtered span-3" data-position="bottom"><img src="photos/about-me-tiles/spain.jpg" alt="" /></a>
+                <a href="photos/about-me-tiles/pie1.jpg" class="image filtered span-1-5" data-position="center"><img src="photos/about-me-tiles/pie1.jpg" alt="" /></a>
+                <a href="photos/about-me-tiles/painting-room.png" class="image filtered span-1-5" data-position="bottom"><img src="photos/about-me-tiles/painting-room.png" alt="" /></a>
+              </div>
+              <a href="photos/about-me-tiles/book-pins.jpg" class="image filtered span-2-5" data-position="top"><img src="photos/about-me-tiles/book-pins.jpg" alt="" /></a>
+              <div class="group span-4-5">
+                <a href="photos/about-me-tiles/painting.png" class="image filtered span-3" data-position="top"><img src="photos/about-me-tiles/painting.png" alt="" /></a>
+                <a href="photos/about-me-tiles/pie2.jpg" class="image filtered span-1-5" data-position="center"><img src="photos/about-me-tiles/pie2.jpg" alt="" /></a>
+                <a href="photos/about-me-tiles/jewelry.png" class="image filtered span-1-5" data-position="bottom"><img src="photos/about-me-tiles/jewelry.png" alt="" /></a>
+                <a href="photos/about-me-tiles/new-things.png" class="image filtered span-3" data-position="top"><img src="photos/about-me-tiles/new-things.png" alt="" /></a>
+              </div>
+              <!-- <a href="images/gallery/fulls/09.jpg" class="image filtered span-2-5" data-position="right"><img src="images/gallery/thumbs/09.jpg" alt="" /></a> -->
+            </div>
+          </section>
+
+          <!-- Panel 4 - Presenting Memory of memories! -->
+          <section id="about-game" class="panel spotlight medium right">
+            <div class="content span-7">
+              <h1 class="major">Presenting:<br>Memory of<br>Memories!</h1>
+              <p><i>"The whimsical game for squares!"</i></p>
+            </div>
+            <div class="image filtered tinted" data-position="top left">
+              <img src="photos/backdrops/lavender.jpg" alt="" />
+            </div>
+          </section>
+
+        <!-- Panel 5 Instructions & settings  -->
+          <section id="instructions-and-setup" class="panel spotlight medium right color1">
+            <div class="intro joined">
+              <h2 class="major">Instructions</h2>
+              <ol>
+                <li><b>Set up the game the way you want to:</b> pick the difficulty level and wether or not you want the additional trivia questions.</li>
+                <li><b>Play it like a normal memory game:</b> Turn over any two cards. If the two cards match, keep them. If they don't match, turn them back over and try to remember their location!</li>
+                <li><b>Get additional points by answering the trivia question:</b>Once you have matched 2 photos, try guessing where the photo was taken!</li>
+              </ol>
+            </div>
+            <div class="inner">
+              <ul class="grid-icons ">
+                <li><span class="icon fa-cog"></span></li>
+                <li><span class="icon fa-camera-retro"></span></li>
+                <li><span class="icon fa-diamond"></span></li>
+              </ul>
+            </div>
+
+        <!--  game settings -->
+
+          <div id="game-setup" class="content span-10">
+            <div>
+              <h3 class="major">Let's set up your game...</h3>
+              <form method="post" action="#">
+                <div class="field">
+                  <label for="demo-name">Names for score board</label>
+                  <input type="text" name="demo-name" id="demo-name-1" value="" placeholder="Darth Vader"/>
+                  <br>
+                  <br>
+                  <input type="text" name="demo-name" id="demo-name-2" value="" placeholder="Luke Skywalker"/>
+                </div>
+                <div class="field">
+                  <label for="demo-category">Level of difficulty</label>
+                  <div class="select-wrapper">
+                    <select name="demo-category" id="demo-category">
+                      <option value="">-</option>
+                      <option value="1">Easy like sunday morning (2 x 3 board)</option>
+                      <option value="1">Stuck in the middle with you (4 x 5 board)</option>
+                      <option value="1">Hit me with your best shot! (6 x 7 board)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div id="trivia" class="field">
+                  <label class="field third" for="demo-category">Would you like to add trivia questions for extra points?</label>
+                  <div >
+                    <input type="radio" id="demo-priority-low" name="demo-priority" class="color2"/>
+                    <label for="demo-priority-low">Yes</label>
+                  </div>
+                  <div class="field third">
+                    <input type="radio" id="demo-priority-high" name="demo-priority" class="color2" />
+                    <label for="demo-priority-high">No</label>
+                  </div>
+                </div>
+
+                </div>
+                <a href="#" class="special button">All set, let's play!</a>
+            </form>
+          </div>
+        </section>
+
+        <!-- Panel 7 - Game grid -->
+          <section id="game-grid" class="panel banner right">
+            <div class="filtered span-0-75 color4" data-position="25% 25%">
+            </div>
+            <div class="content color3 span-4-75">
+              <h1>Memory of memories</h1>
+            </div>
+          </section>
+
+        <!-- Panel 8 - Trivia -->
+          <section id="travia-popup" class="panel color4-alt">
+            <div class="intro color4">
+              <h2 class="major">Let's get some more points!</h2>
+              <p>Where was this photo taken?</p>
+              <ul class="actions">
+                <li><button class="button special large" type="button" name="button">Venice</button></li>
+                <br><br>
+                <li><button class="button special large" type="button" name="button">Atlanta</button></li>
+                <br><br>
+                <li><button class="button special large" type="button" name="button">Barcelona</button></li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Panel 9 -->
+          <section id="thanks-for-playing" class="panel color1">
+            <div class="inner columns divided">
+              <div class="span-2-25">
+                <h1 class="major">Woo hoo!!<br> You won, <span id="winner"> NAME </span>!</h1>
+              </div>
+              <div class="span-1-3">
+                  <h3 class="major">Latest winners...</h3>
+                  <div class="table-wrapper">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Score</th>
+                          <th>Name</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Item One</td>
+                          <td>Ante turpis integer aliquet porttitor.</td>
+                        </tr>
+                        <tr>
+                          <td>Item Two</td>
+                          <td>Vis ac commodo adipiscing arcu aliquet.</td>
+                        </tr>
+                        <tr>
+                          <td>Item Three</td>
+                          <td> Morbi faucibus arcu accumsan lorem.</td>
+                        </tr>
+                        <tr>
+                          <td>Item Four</td>
+                          <td>Vitae integer tempus condimentum.</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+          </section>
+
+          <!-- Panel 10--->
+          <section id="contact" class="panel color1-alt">
+            <div class="inner columns divided">
+              <div class="span-3-25">
+                <h1 class="major">Thanks for playing!</h1>
+              </div>
+              <div class="span-1-3">
+                <ul class="contact-icons color1">
+                  <li><h3>Stay in touch!</h3></li>
+                  <li><p>alida.gagliuffi@gmail.com</p></li>
+                  <li class="icon fa-github"><a href="https://github.com/alidagc" target="_blank">@alidagc</a></li>
+                  <li class="icon fa-facebook"><a href="https://www.facebook.com/alida.gagliuffi" target="_blank">@alida.gagliuffi</a></li>
+                  <li class="icon fa-instagram"><a href="https://www.instagram.com/alida_gc" target="_blank">@alida_gc</a></li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+
+      </div><!-- end Wrapper -->
+    </div><!-- end Page Wrapper -->
+
+    <script src="ethereal-theme/assets/js/jquery.min.js"></script>
+    <script src="ethereal-theme/assets/js/skel.min.js"></script>
+    <script src="ethereal-theme/assets/js/main.js"></script>
+    <script src="js/memory.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

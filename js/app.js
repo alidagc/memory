@@ -82,31 +82,24 @@ function populateBoard () {
 }
 populateBoard();
 
-// Function to know if cards matched within a turn
-function matchingCards () {
-  var lastClicked = '';
-
-  if (lastClicked === 0) {
-    lastClicked += cell;
-  } else {
-    if (lastClicked === cell) {
-        alert('matched!');
-    } else {
-        alert ('sorry try again');
-    }
-  }
-}
-
-$('.card').click(matchingCards());
+// // Function to know if cards matched within a turn
+// function matchingCards () {
+//   var lastClicked = '';
+//
+//   if (lastClicked === 0) {
+//     lastClicked += cell;
+//   } else {
+//     if (lastClicked === cell) {
+//         alert('matched!');
+//     } else {
+//         alert ('sorry try again');
+//     }
+//   }
+// }
+//
+// $('.card').click(matchingCards());
 
 });
 // ^^^ end document ready function
 
-// function City (cityName, cityImage) {
-//   this.name = cityName;
-//   this.image = cityImage;
-// }
-//
-// var venice = new City ('Venice','photos/cards/venice.jpg');
-// var barcelona = new City ('Barcelona', 'photos/cards/barcelona.jpg');
-// var rome = new City ('Rome', 'photos/cards/rome.png');
+// $('.card').click(());

@@ -1,0 +1,12 @@
+div {
+  height: 200px;
+  width: 200px;
+  margin: 150px;
+  /*padding: 20px;*/
+  background: linear-gradient(45deg, #a05dad 1%,#2f1054 76%);
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  line-height: 200px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.8em;
+}

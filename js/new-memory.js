@@ -5,7 +5,11 @@ $(document).ready(function() {
       '<img src="photos/cards/venice.jpg">',
       '<img src="photos/cards/barcelona.jpg">',
       '<img src="photos/cards/barcelona.jpg">',
+      '<img src="photos/cards/rome.png">',
+      '<img src="photos/cards/rome.png">'
     ];
+var points = 0;
+$('#counter').html(points);
 
     function shuffle() {
       var random = 0;
@@ -30,7 +34,7 @@ shuffle();
     }
 
     function clickHandlers() {
-      $('.card').on('click', function() {
+      $('.card').click(function() {
         $(this).html($(this).data('cardValue')).addClass('selected');
         checkMatch();
       });
@@ -39,11 +43,15 @@ shuffle();
     function checkMatch() {
       if ($('.selected').length === 2) {
         if ($('.selected').first().data('cardValue') == $('.selected').last().data('cardValue')) {
+          points +=50;
+          $('#counter').html(points);
           $('.selected').each(function() {
             $(this).animate({
               opacity: 50
-            }).removeClass('unmatched');
+            })
+          .removeClass('unmatched');
           });
+
           $('.selected').each(function() {
             $(this).removeClass('selected');
           });
@@ -60,7 +68,9 @@ shuffle();
 
   function checkWin() {
       if ($('.unmatched').length === 0) {
-        $('section').html('<h1>You Won!</h1>');
+        setTimeout(function (){
+          $('section').html('<h1>You Won!</h1>');
+          },1000);
       }
     }
 

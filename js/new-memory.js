@@ -12,8 +12,8 @@ $('#lets-play').click(function(){
   var cards = [
       {name: 'Venice', photo:'<img src="photos/cards/venice.jpg">'},
       {name: 'Venice', photo:'<img src="photos/cards/venice.jpg">'},
-      {name: 'Barcelona', photo:'<img src="photos/cards/barcelona.jpg">'},
-      {name: 'Barcelona', photo:'<img src="photos/cards/barcelona.jpg">'},
+      {name: 'Barcelona', photo:'<img src="photos/cards/barcelona.jpeg">'},
+      {name: 'Barcelona', photo:'<img src="photos/cards/barcelona.jpeg">'},
       {name: 'Rome', photo:'<img src="photos/cards/rome.png">'},
       {name: 'Rome', photo:'<img src="photos/cards/rome.png">'},
     ];

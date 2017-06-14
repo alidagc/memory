@@ -6,8 +6,15 @@
   width: 40%;
 }
 
-#about-game > div{
-  padding-left: 0;
+#challenges {
+  padding-left: 100px;
+}
+
+#about-game {
+  width: 70rem;
+  h1, p {
+    padding-left: 50%;
+  }
 }
 
 #instructions-and-setup {
@@ -32,17 +39,24 @@
 
 #game-panel {
   width: 50rem;
+  #score-board {
+    text-align: center;
+    h2{
+      margin-top: 20%;
+      font-size: 2em;
+    }
+  }
 }
 
 #the-grid {
-  width: auto;
+  width: 350px;
+  margin: 0;
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 
-  #MofM {
-    background-color: purple;
-  }
   .card {
     width: 100px;
     height: 100px;

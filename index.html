@@ -71,10 +71,10 @@
               <img src="photos/backdrops/lavender.jpg" alt="" />
             </div>
             <div id="challenges" class="intro color2">
-              <h2 class="major">Challenges<br> and mistakes</h2>
+              <h2 class="major">Challenges and mistakes as a newbie</h2>
               <ul>
-                <li>Self doubt & mental blocks</li>
-                <li>Going from written to coded</li>
+                <li>Self doubt and mental blocks</li>
+                <li>Going from mental model of logic to writen coded</li>
               </ul>
             </div>
           </section>
@@ -85,8 +85,8 @@
               <h2 class="major">Instructions</h2>
               <ol>
                 <li><b>Customize your game:</b> Add your players' names and pick the difficulty level .</li>
-                <li><b>Play it like a normal memory game:</b> Turn over any two cards. If the two cards match, keep them. If they don't match, turn them back over and try to remember their location!</li>
-                <li><b>Get additional points by answering the trivia question:</b>Once you have matched 2 photos, try guessing where the photo was taken!</li>
+                <li><b>Play it like a normal memory game:</b> Turn over any two cards. If the two cards match, you keep 'em! If they don't match, try to remember their location because they'll turn back quickly!</li>
+                <li><b>Get additional points by answering the trivia questions:</b> Once you have matched 2 photos, try guessing where they were taken!</li>
               </ol>
             </div>
             <div class="inner">
@@ -140,20 +140,6 @@
               <div class="card unmatched"></div>
               <div class="card unmatched"></div>
               <div class="card unmatched"></div>
-              <!-- <div class="card unmatched"></div>
-              <div class="card unmatched"></div>
-              <div class="card unmatched"></div>
-              <div class="card unmatched"></div>
-              <div class="card unmatched"></div>
-              <div class="card unmatched"></div>
-              <div class="card unmatched"></div>
-              <div class="card unmatched"></div>
-              <div class="card unmatched"></div>
-              <div class="card unmatched"></div>
-              <div class="card unmatched"></div>
-              <div class="card unmatched"></div>
-              <div class="card unmatched"></div>
-              <div class="card unmatched"></div> -->
             </div>
           </section>
 
@@ -163,20 +149,23 @@
               <h2 class="major">Let's get some more points!</h2>
               <p>Where was this photo taken?</p>
               <ul class="actions">
-                <li><button class="button special large" type="button" name="button">Venice</button></li>
+                <li><button id="triviaButton1" class="trivia-button button special large" type="button" name="button"></button></li>
                 <br><br>
-                <li><button class="button special large" type="button" name="button">Atlanta</button></li>
+                <li><button id="triviaButton2" class="trivia-button button special large" type="button" name="button"></button></li>
                 <br><br>
-                <li><button class="button special large" type="button" name="button">Barcelona</button></li>
+                <li><button id="triviaButton3" class="trivia-button button special large" type="button" name="button"></button></li>
               </ul>
+              <p id="incorrect-trivia-answer">Sorry! Try again next time!</p>
+              <p id="correct-trivia-answer">Yes it was! +25 points!</p>
             </div>
+
           </section>
 
           <!-- Panel 8 -->
-          <section id="woohoo-scores" class="panel color1">
+          <section id="woohoo-scores" class="panel color2">
             <div class="inner columns divided">
               <div class="span-2-25">
-                <h1 class="major">Woo hoo!!<br> You won, <span id="winner"></span>!</h1>
+                <h1 class="major">Woo hoo!<br> Congrats, <span id="winner"></span>!</h1>
               </div>
               <div class="span-1-3">
                   <h3 class="major">Latest winners...</h3>
@@ -190,8 +179,12 @@
                       </thead>
                       <tbody id="scores-board-content">
                         <tr>
-                          <td>200</td>
+                          <td>400</td>
                           <td>Mom</td>
+                        </tr>
+                        <tr>
+                          <td>10</td>
+                          <td>Ariel D.</td>
                         </tr>
                       </tbody>
                     </table>
@@ -213,7 +206,7 @@
               </div>
               <div class="span-1-3">
                 <ul class="contact-icons color1">
-                  <li><h3>Stay in touch!</h3></li>
+                  <li><h3>Stay in touch</h3></li>
                   <li><p>alida.gagliuffi@gmail.com</p></li>
                   <li class="icon fa-github"><a href="https://github.com/alidagc" target="_blank">@alidagc</a></li>
                   <li class="icon fa-facebook"><a href="https://www.facebook.com/alida.gagliuffi" target="_blank">@alida.gagliuffi</a></li>
@@ -230,7 +223,7 @@
     <script src="ethereal-theme/assets/js/jquery.min.js"></script>
     <script src="ethereal-theme/assets/js/skel.min.js"></script>
     <script src="ethereal-theme/assets/js/main.js"></script>
-    <!-- <script src="ion-sound/ion.sound.min.js"></script> -->
+    <script src="ion-sound/ion.sound.min.js"></script>
     <script src="js/new-memory.js"></script>
     <script src="js/app.js"></script>
   </body>

@@ -23,11 +23,6 @@
 
 // --------
 
-// $('#lets-play').click(function () {
-//     ion.sound.play('button_click');
-// });
-
-
 // Universal variables
 var possibleCities = ['venice', 'barcelona', 'barcelona','venice','rome', 'rome'];
 var board = [

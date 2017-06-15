@@ -7,7 +7,7 @@
 }
 
 #challenges {
-  padding-left: 100px;
+  padding-left: 80px;
 }
 
 #about-game {
@@ -49,7 +49,7 @@
 }
 
 #the-grid {
-  width: 350px;
+  width: 90%;
   margin: 0;
   display: flex;
   flex-flow: row;
@@ -58,8 +58,8 @@
   justify-content: center;
 
   .card {
-    width: 100px;
     height: 100px;
+    width: 100px;
     border: 2px solid white;
     border-radius: 5%;
     margin: 5px;
@@ -72,3 +72,11 @@
     }
   }
 }
+
+// #trivia-popup {
+//   button {
+//     width: 200px;
+//     height: 100px !important;
+//     padding: 5px;
+//   }
+// }

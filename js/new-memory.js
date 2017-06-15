@@ -131,9 +131,7 @@ shuffle(cards);
       $('#trivia-popup').show();
 
       for (i = 0; i < $('.trivia-button').length ; i++) {
-        console.log($('.trivia-button').eq(i).text());
         if ($('.trivia-button').eq(i).text() === city){
-          console.log("BOOM!");
           $('.trivia-button').eq(i).addClass('correctCity');
           }
         }
@@ -144,8 +142,10 @@ shuffle(cards);
         $('#correct-trivia-answer').show();
         points +=25;
         $('#counter').html(points);
+        $(this).removeClass('correctCity');
       } else {
         $('#incorrect-trivia-answer').show();
+        $(this).removeClass('correctCity');
       }
       setTimeout (function (){
         $('#trivia-popup').hide();
@@ -195,8 +195,6 @@ shuffle(cards);
           // $('#woohoo-scores').ScrollTo();
         },500);
       }
-      // if player's 1 points > than player 2,
-      //  then print player1name, else print player 2
     }
 // end lets play on-click function
 });

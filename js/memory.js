@@ -1,121 +1,234 @@
-// FROM ION SOUND - init bunch of sounds
-// ion.sound({
-//   //list of sounds files to load. Choose the mp3
-//     sounds: [
-//         {name: "beer_can_opening"},
-//         {name: "button_click"}
-//     ],
-//     // path to folder where sounds are stored
-//     path: "../ion-sound/sounds/",
-//     //satrts loading sound files even before you use them
-//     preload: true,
-//     //multiple sounds at once
-//     multiplay: true,
-//     //90% volume
-//     volume: 0.9
+
+// TODO: Make sound work for lets play button and card pick
+// TODO: Figure out double div/img added on round two of game
+// TODO: Take all JS from everything from 1 file to 2
+// TODO: going down from diffiult to medium size board
+
+$(document).ready(function() {
+
+// //   // FROM ION SOUND - init bunch of sounds
+//   ion.sound({
+//     //list of sounds files to load. Choose the mp3
+//       sounds: [
+//           {name: "button_click"}
+//       ],
+//       // path to folder where sounds are stored
+//       path: "ion.sound/sounds/",
+//       //satrts loading sound files even before you use them
+//       preload: true,
+//       //multiple sounds at once
+//       multiplay: true,
+//       //90% volume
+//       volume: 0.9,
 // });
 
-// $(document).ready(function (){
-//   $('#lets-play').click(function () {
-//       ion.sound.play('button_click');
-//   });
-// });
+$('#trivia-popup').hide();
+$('#incorrect-trivia-answer').hide();
+$('#correct-trivia-answer').hide();
+$('#woohoo-scores').hide();
+$('#contact').hide();
+$('#game-panel').hide();
 
-// --------
+var cards = [];
 
-// Universal variables
-var possibleCities = ['venice', 'barcelona', 'barcelona','venice','rome', 'rome'];
-var board = [
-  ['','',''],
-  ['','','']
-];
-var contents = '';
-var cell = '';
-var lastClicked = '';
+var easyCities = [
+    {name: 'Venice', photo:'<img src="photos/cards/venice.jpg">'},
+    {name: 'Venice', photo:'<img src="photos/cards/venice.jpg">'},
+    {name: 'Barcelona', photo:'<img src="photos/cards/barcelona.jpeg">'},
+    {name: 'Barcelona', photo:'<img src="photos/cards/barcelona.jpeg">'},
+    {name: 'Rome', photo:'<img src="photos/cards/rome.png">'},
+    {name: 'Rome', photo:'<img src="photos/cards/rome.png">'},
+  ];
 
-$(document).ready(function (){
+var mediumCities = [
+    {name: 'Amsterdam', photo:'<img src="photos/cards/amsterdam.jpg">'},
+    {name: 'Amsterdam', photo:'<img src="photos/cards/amsterdam.jpg">'},
+    {name: 'Dubrovnik', photo:'<img src="photos/cards/dubrovnik.png">'},
+    {name: 'Dubrovnik', photo:'<img src="photos/cards/dubrovnik.png">'},
+    {name: 'New Orleans', photo:'<img src="photos/cards/nola.jpg">'},
+    {name: 'New Orleans', photo:'<img src="photos/cards/nola.jpg">'}
+  ];
 
-// Function to shuffle all possible cards:
-function shuffle(array) {
-  var m = array.length, t, i;
-  // While there remain elements to shuffle…
-  while (m) {
-    // Pick a remaining element…
-    i = Math.floor(Math.random() * m--);
-    // And swap it with the current element.
-    t = array[m];
-    array[m] = array[i];
-    array[i] = t;
-  }
-  return array;
-}
+var difficultCities = [
+    {name: 'New York', photo:'<img src="photos/cards/new-york.jpg">'},
+    {name: 'New York', photo:'<img src="photos/cards/new-york.jpg">'},
+    {name: 'Positano', photo:'<img src="photos/cards/positano.png">'},
+    {name: 'Positano', photo:'<img src="photos/cards/positano.png">'},
+    {name: 'San Sebastian', photo:'<img src="photos/cards/san-sebastian.jpg">'},
+    {name: 'San Sebastian', photo:'<img src="photos/cards/san-sebastian.jpg">'}
+  ];
 
-shuffle(possibleCities);
+var citiesTrivia = ['Tokyo','Osaka','Lima','Miami',
+'Bali','Milan','Bogota','Munich','Bangkok','Los Angeles','Rio de Janeiro',
+'Chicago','Hong Kong','Toronto','Sydney'];
 
-function populateBoard () {
+var trivia3Options = [];
 
-  for (row = 0; row < board.length; row++) {
-      for (col = 0; col < board[row].length; col++) {
-        if (row === 0){
-          // <!--TODO: ^^ this needs to be scaled to when you have more rows -->
-          city = col;
-        } else {
-          city = col + board[row].length;
-        }
-            cell = board[row][col];
-            cell = possibleCities[city];
 
-          if (cell === 'venice') {
-          contents = '<div class="card"><img src="photos/cards/venice.jpg"></div>';
-          }
-          else if (cell === 'barcelona') {
-          contents = '<div class="card"><img src="photos/cards/barcelona.jpg"></div>';
-          }
-          else if (cell === 'rome') {
-          contents = '<div class="card"><img src="photos/cards/rome.png"></div>';
-          }
+// This click lets the game start
+$('#lets-play').click(function(){
+  // ion.sound.play('button_click');
+  var points = 0;
+  $('#counter').html(points);
+  $('#game-panel').show();
 
-        // $('#MofM').remove();
-        // <!--TODO: ^^ this needs to be deleted. It's only for testing purposed -->
-        $('#the-grid').append(contents);
-        }
-      }
-}
-populateBoard();
+  var player1name = $('#player-1-name').val();
 
-// // Function to know if cards matched within a turn
-function matchingCards () {
-  var cardsPicked = '';
-
-  // push what you click into the array if the array is empty, stpre
-  // if its 1 then store, then compare, then empty
-
-  if (cardsPicked === 0) {
-    cardsPicked ++;
-  } else {
-    if (lastClicked === 1) {
-        alert('matched!');
-    } else {
-        alert ('sorry try again');
+function addingCities (levelArray) {
+  for (i = 0; i < levelArray.length ; i++) {
+      cards.push(levelArray[i]);
+      $('#the-grid').append('<div class="card unmatched"></div>');
     }
   }
+function sizeOfBoard (){
+  if ($('#difficulty').val() === "easy"){
+      addingCities(easyCities);
+  } else if ($('#difficulty').val() === "medium"){
+      addingCities(easyCities);
+      addingCities(mediumCities);
+  } else if ($('#difficulty').val() === "difficult" && cards.length === 0){
+      addingCities(easyCities);
+      addingCities(mediumCities);
+      addingCities(difficultCities);
+  } else if ($('#difficulty').val() === "difficult" && cards.length > 8){
+      addingCities(difficultCities);
+  } else if ($('#difficulty').val() === "difficult" && cards.length < 8) {
+      addingCities(mediumCities);
+      addingCities(difficultCities);
+  }
 }
 
-$('.card').click(matchingCards());
+sizeOfBoard();
 
+    function shuffle(array) {
+      console.log('shuffle');
+      var random = 0;
+      var temp = 0;
+      for (i = 1; i < array.length; i++) {
+        random = Math.round(Math.random() * i);
+        temp = array[i];
+        array[i] = array[random];
+        array[random] = temp;
+      }
+    }
+
+// this sets up the initial game
+shuffle(cards);
+assignCards();
+// ------------------------------
+
+    function assignCards() {
+      console.log('assign');
+      $('.card').each(function(index) {
+        $(this).attr('data-card-value', cards[index].photo);
+        $(this).attr('data-name', cards[index].name);
+      });
+      // maybe this should be separate if cards are assigned multiple times
+      clickHandlers();
+    }
+
+    function clickHandlers() {
+      $('.card').click(function() {
+        $(this).html($(this).data('cardValue')).addClass('selected');
+        checkMatch();
+      });
+    }
+
+    function trivia(city) {
+      var buttons = $('.trivia-button');
+      trivia3Options.push(city);
+      shuffle(citiesTrivia);
+      trivia3Options.push(citiesTrivia[0]);
+      trivia3Options.push(citiesTrivia[1]);
+      shuffle(trivia3Options);
+      $('#triviaButton1').html(trivia3Options[0]);
+      $('#triviaButton2').html(trivia3Options[1]);
+      $('#triviaButton3').html(trivia3Options[2]);
+      setTimeout (function () {
+        $('#trivia-popup').show();
+      },500);
+      for (i = 0; i < $('.trivia-button').length ; i++) {
+        if ($('.trivia-button').eq(i).text() === city){
+          $('.trivia-button').eq(i).addClass('correctCity');
+          }
+        }
+    }
+
+    function checkTrivia (){
+      if ($(this).hasClass('correctCity')) {
+        $('#correct-trivia-answer').show();
+        points +=25;
+        $('#counter').html(points);
+        $(this).removeClass('correctCity');
+      } else {
+        $('#incorrect-trivia-answer').show();
+        $(this).removeClass('correctCity');
+      }
+      setTimeout (function (){
+        $('#trivia-popup').hide();
+        trivia3Options = [];
+        $('#incorrect-trivia-answer').hide();
+        $('#correct-trivia-answer').hide();
+      }, 1400);
+    }
+
+    function checkMatch() {
+      if ($('.selected').length === 2) {
+        if ($('.selected').first().data('cardValue') === $('.selected').last().data('cardValue')) {
+          points +=50;
+          $('#counter').html(points);
+          var matchedCity = $('.selected').first().data('name');
+          trivia(matchedCity);
+          $('.selected').each(function() {
+            $(this).animate({
+              opacity: 50
+            })
+            .removeClass('unmatched');
+          });
+          setTimeout(function() {
+            $('.selected').each(function() {
+              // alert("hi");
+              $(this).removeClass('selected');
+            });
+          }, 800);
+          checkWin();
+
+        } else {
+          setTimeout(function() {
+            $('.selected').each(function() {
+              // alert("hi");
+              $(this).html('').removeClass('selected');
+            });
+          }, 800);
+        }
+      }
+    }
+
+$('.trivia-button').click(checkTrivia);
+
+  function checkWin() {
+      if ($('.unmatched').length === 0) {
+        setTimeout(function (){
+          $('#woohoo-scores').show();
+          $('#winner').html(player1name);
+          $('#scores-board-content').prepend('<tr><td>'+ points +'</td><td>'+ player1name +'</td></tr>');
+          $('#contact').show();
+          $('#game-panel').hide();
+          cards = [];
+          $('#the-grid').empty();
+          points = 0;
+          $('#counter').html('');
+        },3500);
+      }
+    }
+
+  $('#play-again').click(function(){
+    $('#woohoo-scores').hide();
+    $('#contact').hide();
+    $('#trivia-popup').hide();
+  });
+// end lets-play click function
 });
-// ^^^ end document ready function
 
-// Functions from simon:
-
-// $('#counter').html(this.round);
-//   this.round +=1;
-//
-//   SimonGame.prototype.gameOver = function () {
-//     this.sequence = [];
-//     this.userClickCount = 0;
-//     this.round = 1;
-//     $('#counter').html(0);
-//
-//     this.startGame();
-//   };
+// end doc ready function
+});

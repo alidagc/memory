@@ -1,5 +1,4 @@
 
-// TODO: Make sound work for lets play button and card pick
 // TODO: Figure out double div/img added on round two of game
 // TODO: Take all JS from everything from 1 file to 2
 // TODO: going down from diffiult to medium size board
@@ -7,20 +6,20 @@
 $(document).ready(function() {
 
 // //   // FROM ION SOUND - init bunch of sounds
-//   ion.sound({
-//     //list of sounds files to load. Choose the mp3
-//       sounds: [
-//           {name: "button_click"}
-//       ],
-//       // path to folder where sounds are stored
-//       path: "ion.sound/sounds/",
-//       //satrts loading sound files even before you use them
-//       preload: true,
-//       //multiple sounds at once
-//       multiplay: true,
-//       //90% volume
-//       volume: 0.9,
-// });
+ion.sound({
+    sounds: [
+        {name: "bell_ring"},
+        {name: "button_click"},
+        {name: "water_droplet"},
+        {name: "camera_flashing_2"},
+        {name: "bell_ring"}
+    ],
+    // main config
+    path: "ion.sound/sounds/",
+    preload: true,
+    multiplay: true,
+    volume: 0.9
+});
 
 $('#trivia-popup').hide();
 $('#incorrect-trivia-answer').hide();
@@ -67,7 +66,7 @@ var trivia3Options = [];
 
 // This click lets the game start
 $('#lets-play').click(function(){
-  // ion.sound.play('button_click');
+  ion.sound.play("button_click");
   var points = 0;
   $('#counter').html(points);
   $('#game-panel').show();
@@ -129,6 +128,7 @@ assignCards();
 
     function clickHandlers() {
       $('.card').click(function() {
+        // ion.sound.play("water_droplet");
         $(this).html($(this).data('cardValue')).addClass('selected');
         checkMatch();
       });
@@ -144,6 +144,7 @@ assignCards();
       $('#triviaButton1').html(trivia3Options[0]);
       $('#triviaButton2').html(trivia3Options[1]);
       $('#triviaButton3').html(trivia3Options[2]);
+      ion.sound.play("camera_flashing_2");
       setTimeout (function () {
         $('#trivia-popup').show();
       },500);
@@ -159,6 +160,7 @@ assignCards();
         $('#correct-trivia-answer').show();
         points +=25;
         $('#counter').html(points);
+        ion.sound.play("bell_ring");
         $(this).removeClass('correctCity');
       } else {
         $('#incorrect-trivia-answer').show();

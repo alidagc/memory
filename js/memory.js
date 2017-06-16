@@ -5,7 +5,7 @@
 
 $(document).ready(function() {
 
-// //   // FROM ION SOUND - init bunch of sounds
+// FROM ION SOUND - init bunch of sounds
 ion.sound({
     sounds: [
         {name: "bell_ring"},
@@ -49,12 +49,12 @@ var mediumCities = [
   ];
 
 var difficultCities = [
-    {name: 'New York', photo:'<img src="photos/cards/new-york.jpg">'},
-    {name: 'New York', photo:'<img src="photos/cards/new-york.jpg">'},
+    {name: 'New York', photo:'<img src="photos/cards/new-york.jpeg">'},
+    {name: 'New York', photo:'<img src="photos/cards/new-york.jpeg">'},
     {name: 'Positano', photo:'<img src="photos/cards/positano.png">'},
     {name: 'Positano', photo:'<img src="photos/cards/positano.png">'},
-    {name: 'San Sebastian', photo:'<img src="photos/cards/san-sebastian.jpg">'},
-    {name: 'San Sebastian', photo:'<img src="photos/cards/san-sebastian.jpg">'}
+    {name: 'San Sebastian', photo:'<img src="photos/cards/san-sebastian.jpeg">'},
+    {name: 'San Sebastian', photo:'<img src="photos/cards/san-sebastian.jpeg">'}
   ];
 
 var citiesTrivia = ['Tokyo','Osaka','Lima','Miami',

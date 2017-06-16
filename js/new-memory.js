@@ -1,3 +1,9 @@
+// TODO: Figure out selector class duplicate
+// TODO: Make sound work for lets play button and card pick
+// TODO: Figure out double div/img added on round two of game
+// TODO: Take all JS from everything from 1 file to 2
+// TODO: going down from diffiult to medium size board
+
 $(document).ready(function() {
 
 //   // FROM ION SOUND - init bunch of sounds
@@ -23,13 +29,9 @@ $('#woohoo-scores').hide();
 $('#contact').hide();
 $('#game-panel').hide();
 
-var citiesTrivia = ['Tokyo','Osaka','Lima','Miami',
-'Bali','Milan','Bogota','Munich','Bangkok','Los Angeles','Rio de Janeiro',
-'Chicago','Hong Kong','Toronto','Sydney'];
+var cards = [];
 
-var trivia3Options = [];
-
-var cards = [
+var easyCities = [
     {name: 'Venice', photo:'<img src="photos/cards/venice.jpg">'},
     {name: 'Venice', photo:'<img src="photos/cards/venice.jpg">'},
     {name: 'Barcelona', photo:'<img src="photos/cards/barcelona.jpeg">'},
@@ -56,6 +58,12 @@ var difficultCities = [
     {name: 'San Sebastian', photo:'<img src="photos/cards/san-sebastian.jpg">'}
   ];
 
+var citiesTrivia = ['Tokyo','Osaka','Lima','Miami',
+'Bali','Milan','Bogota','Munich','Bangkok','Los Angeles','Rio de Janeiro',
+'Chicago','Hong Kong','Toronto','Sydney'];
+
+var trivia3Options = [];
+
 var points = 0;
 $('#counter').html(points);
 
@@ -65,26 +73,32 @@ $('#lets-play').click(function(){
   $('#game-panel').show();
 
   var player1name = $('#player-1-name').val();
-  var player2name = $('#player-2-name').val();
 
-function sizeOfBoard (){
-  if ($('#difficulty').val() === "medium"){
-    for (i = 0; i < mediumCities.length ; i++) {
-        cards.push(mediumCities[i]);
-    }
-    for (i = 0; i < mediumCities.length ; i++) {
+function addingCities (levelArray) {
+  for (i = 0; i < levelArray.length ; i++) {
+      cards.push(levelArray[i]);
       $('#the-grid').append('<div class="card unmatched"></div>');
-    }
-  } else
-    if ($('#difficulty').val() === "difficult"){
-    for (i = 0; i < difficultCities.length ; i++) {
-        cards.push(difficultCities[i]);
-    }
-    for (i = 0; i < difficultCities.length ; i++) {
-      $('#the-grid').append('<div class="card unmatched"></div>');
-    }
     }
   }
+function sizeOfBoard (){
+  if ($('#difficulty').val() === "easy"){
+      addingCities(easyCities);
+  } else if ($('#difficulty').val() === "medium"){
+      addingCities(easyCities);
+      addingCities(mediumCities);
+  } else if ($('#difficulty').val() === "difficult" && cards.length === 0){
+      addingCities(easyCities);
+      addingCities(mediumCities);
+      addingCities(difficultCities);
+  } else if ($('#difficulty').val() === "difficult" && cards.length > 8){
+      addingCities(difficultCities);
+  } else if ($('#difficulty').val() === "difficult" && cards.length < 8) {
+      addingCities(mediumCities);
+      addingCities(difficultCities);
+  }
+}
+
+
 sizeOfBoard();
 
     function shuffle(array) {
@@ -97,8 +111,8 @@ sizeOfBoard();
         array[random] = temp;
       }
       assignCards();
-      // console.log('Shuffled Card Array: ' + cards);
     }
+
 shuffle(cards);
 
     function assignCards() {
@@ -118,8 +132,6 @@ shuffle(cards);
 
     function trivia(city) {
       var buttons = $('.trivia-button');
-      console.log(buttons);
-
       trivia3Options.push(city);
       shuffle(citiesTrivia);
       trivia3Options.push(citiesTrivia[0]);
@@ -128,8 +140,9 @@ shuffle(cards);
       $('#triviaButton1').html(trivia3Options[0]);
       $('#triviaButton2').html(trivia3Options[1]);
       $('#triviaButton3').html(trivia3Options[2]);
-      $('#trivia-popup').show();
-
+      setTimeout (function () {
+        $('#trivia-popup').show();
+      },500);
       for (i = 0; i < $('.trivia-button').length ; i++) {
         if ($('.trivia-button').eq(i).text() === city){
           $('.trivia-button').eq(i).addClass('correctCity');
@@ -152,7 +165,7 @@ shuffle(cards);
         trivia3Options = [];
         $('#incorrect-trivia-answer').hide();
         $('#correct-trivia-answer').hide();
-      }, 1600);
+      }, 1400);
     }
 
     function checkMatch() {
@@ -182,7 +195,7 @@ shuffle(cards);
       }
     }
 
-  $('.trivia-button').click(checkTrivia);
+$('.trivia-button').click(checkTrivia);
 
   function checkWin() {
       if ($('.unmatched').length === 0) {
@@ -192,15 +205,16 @@ shuffle(cards);
           $('#scores-board-content').prepend('<tr><td>'+ points +'</td><td>'+ player1name +'</td></tr>');
           $('#contact').show();
           $('#game-panel').hide();
-          // $('#woohoo-scores').ScrollTo();
-        },500);
+          cards = [];
+          $('#the-grid').empty();
+          points = 0;
+          $('#counter').html(points);
+        },3500);
       }
     }
-// end lets play on-click function
-});
 
-// TODO: Tear down without refreshing the page
-// $('#play-again').click()
+// end lets-play click function
+});
 
 // end doc ready function
 });

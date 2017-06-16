@@ -39,6 +39,17 @@
 
 #game-panel {
   width: 50rem;
+  position: relative;
+  #trivia-popup {
+    width: auto;
+    height: 85%;
+    position: absolute;
+    left: 20%;
+    top:5%;
+    border-radius: 20px;
+    padding: 20px 50px;
+  }
+
   #score-board {
     text-align: center;
     h2{
@@ -72,11 +83,3 @@
     }
   }
 }
-
-// #trivia-popup {
-//   button {
-//     width: 200px;
-//     height: 100px !important;
-//     padding: 5px;
-//   }
-// }
